@@ -18,6 +18,7 @@ void output(Node *);
 void addAtHead(Node *);
 void addAtTail(Node *);
 void deleteNode(Node *);
+void insertNode(Node *);
 
 int main() {
     Node *head = nullptr;
@@ -31,32 +32,7 @@ int main() {
     output(head);
 
     // deleting a node
-    cout << "Which node to delete? " << endl;
-    output(head);
-    int entry;
-    cout << "Choice --> ";
-    cin >> entry;
-
-    // traverse that many times and delete that node
-    Node *current = head;
-    Node *prev = nullptr;  // start prev as nullptr to detect head deletion
-
-    for (int i = 0; i < (entry - 1); i++) {
-        prev = current;
-        current = current->next;
-    }
-
-    // at this point, delete current and reroute pointers
-    if (current) {
-        if (prev == nullptr) {
-            // deleting the head node
-            head = current->next;
-        } else {
-            prev->next = current->next;
-        }
-        delete current;
-        current = nullptr;
-    }
+    deleteNode(head);
     output(head);
 
     // insert a node
@@ -121,7 +97,7 @@ void output(Node *hd) {
     cout << endl;
 }
 
-//description: 
+//description: addAtHead() adds a node to the head of a linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
 void addAtHead (Node *head) {
@@ -139,25 +115,51 @@ void addAtHead (Node *head) {
         }
 }
 
-//description: 
+//description: addAtTail() adds a node to the tail of a linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
 void addAtTail (Node *head) {
 
 }
 
-//description: 
+//description: deleteNode() deletes a node chosen by the user from a linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
 void deleteNode(Node *head) {
+    cout << "Which node to delete? " << endl;
+    output(head);
+    int entry;
+    cout << "Choice --> ";
+    cin >> entry;
 
+    // traverse that many times and delete that node
+    Node *current = head;
+    Node *prev = nullptr;  // start prev as nullptr to detect head deletion
+
+    for (int i = 0; i < (entry - 1); i++) {
+        prev = current;
+        current = current->next;
+    }
+
+    // at this point, delete current and reroute pointers
+    if (current) {
+        if (prev == nullptr) {
+            // deleting the head node
+            head = current->next;
+        } else {
+            prev->next = current->next;
+        }
+        delete current;
+        current = nullptr;
+    }
 }
 
-//description: 
+//description: insertNode() inserts a node into a linked list at a position
+//specified by the user
 //arguments: a pointer to the head of a linked list
 //returns: void
 
 
-//description: 
+//description: deleteList() deletes an entire linked list
 //arguments: a pointer to the head of a linked list
 //returns: void

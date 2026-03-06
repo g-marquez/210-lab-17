@@ -16,6 +16,8 @@ struct Node {
 
 void output(Node *);
 void addAtHead(Node *);
+void addAtTail(Node *);
+void deleteNode(Node *);
 
 int main() {
     Node *head = nullptr;
@@ -24,7 +26,7 @@ int main() {
     // create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
         // adds node at head
-       
+        addAtHead(head);
     }
     output(head);
 
@@ -102,6 +104,9 @@ int main() {
     return 0;
 }
 
+//description: output() outputs the contents of a linked list to the console
+//arguments: a pointer to the head of a linked list
+//returns: void
 void output(Node *hd) {
     if (!hd) {
         cout << "Empty list.\n";
@@ -116,6 +121,9 @@ void output(Node *hd) {
     cout << endl;
 }
 
+//description: 
+//arguments: a pointer to the head of a linked list
+//returns: void
 void addAtHead (Node *head) {
     int tmp_val = rand() % 100;
     Node *newVal = new Node; 
@@ -130,3 +138,26 @@ void addAtHead (Node *head) {
             head = newVal;
         }
 }
+
+//description: 
+//arguments: a pointer to the head of a linked list
+//returns: void
+void addAtTail (Node *head) {
+
+}
+
+//description: 
+//arguments: a pointer to the head of a linked list
+//returns: void
+void deleteNode(Node *head) {
+
+}
+
+//description: 
+//arguments: a pointer to the head of a linked list
+//returns: void
+
+
+//description: 
+//arguments: a pointer to the head of a linked list
+//returns: void

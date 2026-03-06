@@ -7,7 +7,8 @@
 #include <iostream>
 using namespace std;
 
-const int SIZE = 7;  
+const int SIZE = 7;
+const int LIST_START = 1;  
 
 struct Node {
     float value;
@@ -116,7 +117,7 @@ void deleteNode(Node *&head) {
     cout << "Choice --> ";
     cin >> entry;
     //validate entry
-    while(entry < 1 || entry > SIZE) { 
+    while(entry < LIST_START || entry > SIZE) { 
         cout << "Please choose a valid entry --> ";
         cin >> entry;
     }
@@ -152,15 +153,20 @@ void insertNode (Node *&head) {
     int entry;
     cout << "After which node to insert 10000? Enter 0 to add to head of list."
          << endl;
-    int count = 1;
+    int count = 0;
+    //modified count in line 158 and added 160 to help with entry validation
     while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
+        cout << "[" << count + 1 << "] " << current->value << endl;
         current = current->next;
+        count++;
     }
     cout << "Choice --> ";
     cin >> entry;
-    //validate
-
+    //validate entry
+    while (entry < 0 || entry > count) {
+        cout << "Please choose a valid entry --> ";
+        cin >> entry;
+    }
     current = head;
     //added '&& current' in for loop to prevent segmentation faults
     for (int i = 0; i < entry && current; i++) {

@@ -155,6 +155,7 @@ void insertNode (Node *&head) {
     cout << "Choice --> ";
     cin >> entry;
 
+    current = head;
     for (int i = 0; i < entry; i++) {
         prev = current;
         current = current->next;

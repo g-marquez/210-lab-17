@@ -37,17 +37,11 @@ int main() {
     output(head);
 
     // insert a node
-    
+    insertNode(head);
     output(head);
 
     // deleting the linked list
-    current = head;
-    while (current) {
-        head = current->next;
-        delete current;
-        current = head;
-    }
-    head = nullptr;
+    deleteList(head);
     output(head);
 
     return 0;
@@ -92,6 +86,8 @@ void addAtHead (Node *head) {
 //arguments: a pointer to the head of a linked list
 //returns: void
 void addAtTail (Node *head) {
+    int tmp_val = rand() % 100;
+    Node *newVal = new Node;
 
 }
 
@@ -157,9 +153,9 @@ void insertNode (Node *head) {
     if (prev == nullptr) {
         // inserting before the head
         head = newnode;
-    } else {
+    } 
+    else
         prev->next = newnode;
-    }
 }
 
 
@@ -167,5 +163,11 @@ void insertNode (Node *head) {
 //arguments: a pointer to the head of a linked list
 //returns: void
 void deleteList (Node *head) {
-
+    Node *current = head;
+    while (current) {
+        head = current->next;
+        delete current;
+        current = head;
+    }
+    head = nullptr;
 }

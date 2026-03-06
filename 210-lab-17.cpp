@@ -64,31 +64,48 @@ void output(Node *hd) {
     cout << endl;
 }
 
-//description: addAtHead() adds a node to the head of a linked list
+//description: addAtHead() adds a node with a random value to the head of a
+// linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
 void addAtHead (Node *head) {
     int tmp_val = rand() % 100;
     Node *newVal = new Node; 
     if (!head) {
-            head = newVal;
-            newVal->next = nullptr;
-            newVal->value = tmp_val;
-        }
-        else {
-            newVal->next = head;
-            newVal->value = tmp_val;
-            head = newVal;
-        }
+        head = newVal;
+        newVal->next = nullptr;
+        newVal->value = tmp_val;
+    }
+    else {
+        newVal->next = head;
+        newVal->value = tmp_val;
+        head = newVal;
+    }
 }
 
-//description: addAtTail() adds a node to the tail of a linked list
+//description: addAtTail() adds a node with a random value to the tail of a
+// linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
 void addAtTail (Node *head) {
     int tmp_val = rand() % 100;
     Node *newVal = new Node;
-
+    if (!head) {
+        head = newVal;
+        newVal->next = nullptr;
+        newVal->value = tmp_val;
+    }
+    else {
+        Node *current = head;
+        while (current)
+        {
+            /* code */
+        }
+        
+        newVal->next = nullptr;
+        newVal->value = tmp_val;
+        //head = newVal;
+    }
 }
 
 //description: deleteNode() deletes a node chosen by the user from a linked list

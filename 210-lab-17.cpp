@@ -15,11 +15,11 @@ struct Node {
 };
 
 void output(Node *);
-void addAtHead(Node *);
-void addAtTail(Node *);
-void deleteNode(Node *);
-void insertNode(Node *);
-void deleteList(Node *);
+void addAtHead(Node *&);
+void addAtTail(Node *&);
+void deleteNode(Node *&);
+void insertNode(Node *&);
+void deleteList(Node *&);
 
 int main() {
     Node *head = nullptr;
@@ -68,7 +68,7 @@ void output(Node *hd) {
 // linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
-void addAtHead (Node *head) {
+void addAtHead (Node *&head) {
     int tmp_val = rand() % 100;
     Node *newVal = new Node; 
     if (!head) {
@@ -87,7 +87,7 @@ void addAtHead (Node *head) {
 // linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
-void addAtTail (Node *head) {
+void addAtTail (Node *&head) {
     int tmp_val = rand() % 100;
     Node *newVal = new Node;
     if (!head) {
@@ -109,7 +109,7 @@ void addAtTail (Node *head) {
 //description: deleteNode() deletes a node chosen by the user from a linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
-void deleteNode(Node *head) {
+void deleteNode(Node *&head) {
     cout << "Which node to delete? " << endl;
     output(head);
     int entry;
@@ -142,7 +142,7 @@ void deleteNode(Node *head) {
 //specified by the user
 //arguments: a pointer to the head of a linked list
 //returns: void
-void insertNode (Node *head) {
+void insertNode (Node *&head) {
     Node *current = head;
     Node *prev = nullptr;
     int entry;
@@ -173,11 +173,10 @@ void insertNode (Node *head) {
         prev->next = newnode;
 }
 
-
 //description: deleteList() deletes an entire linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
-void deleteList (Node *head) {
+void deleteList (Node *&head) {
     Node *current = head;
     while (current) {
         head = current->next;

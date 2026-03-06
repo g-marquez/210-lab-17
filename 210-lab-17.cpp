@@ -115,7 +115,11 @@ void deleteNode(Node *&head) {
     int entry;
     cout << "Choice --> ";
     cin >> entry;
-
+    //validate entry
+    while(0 < entry < SIZE) { 
+        cout << "Please choose a valid entry --> ";
+        cin >> entry;
+    }
     // traverse that many times and delete that node
     Node *current = head;
     Node *prev = nullptr;  // start prev as nullptr to detect head deletion
@@ -156,7 +160,8 @@ void insertNode (Node *&head) {
     cin >> entry;
 
     current = head;
-    for (int i = 0; i < entry; i++) {
+    //added '&& current' in for loop to prevent segmentation faults
+    for (int i = 0; i < entry && current; i++) {
         prev = current;
         current = current->next;
     }

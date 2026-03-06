@@ -116,7 +116,7 @@ void deleteNode(Node *&head) {
     cout << "Choice --> ";
     cin >> entry;
     //validate entry
-    while(0 < entry < SIZE) { 
+    while(entry < 1 || entry > SIZE) { 
         cout << "Please choose a valid entry --> ";
         cin >> entry;
     }
@@ -150,7 +150,8 @@ void insertNode (Node *&head) {
     Node *current = head;
     Node *prev = nullptr;
     int entry;
-    cout << "After which node to insert 10000? " << endl;
+    cout << "After which node to insert 10000? Enter 0 to add to head of list."
+         << endl;
     int count = 1;
     while (current) {
         cout << "[" << count++ << "] " << current->value << endl;
@@ -158,6 +159,7 @@ void insertNode (Node *&head) {
     }
     cout << "Choice --> ";
     cin >> entry;
+    //validate
 
     current = head;
     //added '&& current' in for loop to prevent segmentation faults

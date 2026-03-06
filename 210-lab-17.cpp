@@ -97,14 +97,12 @@ void addAtTail (Node *head) {
     }
     else {
         Node *current = head;
-        while (current)
-        {
-            /* code */
+        while (current->next) {
+            current = current->next;
         }
-        
+        current->next = newVal;
         newVal->next = nullptr;
         newVal->value = tmp_val;
-        //head = newVal;
     }
 }
 

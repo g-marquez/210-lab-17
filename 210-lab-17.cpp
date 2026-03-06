@@ -19,6 +19,7 @@ void addAtHead(Node *);
 void addAtTail(Node *);
 void deleteNode(Node *);
 void insertNode(Node *);
+void deleteList(Node *);
 
 int main() {
     Node *head = nullptr;
@@ -36,35 +37,7 @@ int main() {
     output(head);
 
     // insert a node
-    cout << "After which node to insert 10000? " << endl;
-    count = 1;
-    current = head;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
-    cout << "Choice --> ";
-    cin >> entry;
-
-    current = head;
-    prev = nullptr;  // reset prev to nullptr for same reason
-
-    for (int i = 0; i < entry; i++) {
-        prev = current;
-        current = current->next;
-    }
-
-    // at this point, insert a node between prev and current
-    Node *newnode = new Node;
-    newnode->value = 10000;
-    newnode->next = current;
-
-    if (prev == nullptr) {
-        // inserting before the head
-        head = newnode;
-    } else {
-        prev->next = newnode;
-    }
+    
     output(head);
 
     // deleting the linked list
@@ -158,8 +131,41 @@ void deleteNode(Node *head) {
 //specified by the user
 //arguments: a pointer to the head of a linked list
 //returns: void
+void insertNode (Node *head) {
+    Node *current = head;
+    Node *prev = nullptr;
+    int entry;
+    cout << "After which node to insert 10000? " << endl;
+    int count = 1;
+    while (current) {
+        cout << "[" << count++ << "] " << current->value << endl;
+        current = current->next;
+    }
+    cout << "Choice --> ";
+    cin >> entry;
+
+    for (int i = 0; i < entry; i++) {
+        prev = current;
+        current = current->next;
+    }
+
+    // at this point, insert a node between prev and current
+    Node *newnode = new Node;
+    newnode->value = 10000;
+    newnode->next = current;
+
+    if (prev == nullptr) {
+        // inserting before the head
+        head = newnode;
+    } else {
+        prev->next = newnode;
+    }
+}
 
 
 //description: deleteList() deletes an entire linked list
 //arguments: a pointer to the head of a linked list
 //returns: void
+void deleteList (Node *head) {
+
+}
